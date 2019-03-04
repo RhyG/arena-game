@@ -7,6 +7,7 @@ require 'progressbar'
 class Player
     attr_reader :name
     attr_accessor :attack, :weapon, :level, :coins, :experience
+
     # initalizes the player with base stats
     def initialize(name)
         @name = name
@@ -27,8 +28,10 @@ class Player
             puts "Dealt: #{damage} damage."
             enemy.health -= damage # subtracts the damage from the enemy health
         end
+
         bar = ProgressBar.create(:title => "Fighting") # this creates a progress bar that 'simulates' the fight
         50.times { bar.increment; sleep 0.07 }
+
         if enemy.health <= 0 # if the enemy health is brought to zero or less then the player wins
             puts
             puts "VICTORY!".red
@@ -42,14 +45,12 @@ class Player
             elsif $practice_drones.include? enemy 
                 $coins_rewarded = 5
                 puts "The Tetrarchs award you" + " #{$coins_rewarded} coins".yellow + " for your efforts."
-                puts
                 self.level_up(2) # calls the level up method and passes it 'experience'
             else
             end
-            
             self.coins += $coins_rewarded # adds the coins to the player
             
-            enemy.health = stored_health if $practice_drones.include? enemy # restores the practice drone health so that you can train against them 
+            enemy.health = stored_health if $practice_drones.include? enemy # restores the practice drone health so that you can train against them over and over
         else # executes if enemy health isn't brought to zero
             puts "You lose."
             puts "The Tetrarchs throw two coins at your feet."
@@ -85,6 +86,7 @@ class Player
     def armoury
         count = 0 # count allowing list to show background every second item
         puts "We've got the weapons, if you've got the coin."
+        puts "You currently have " + "#{self.coins} coins.".yellow
         puts
         $weapons.each do |weapon| # iterates through array for display purposes. Gives every second weapon a white background.
             if count % 2 == 0
@@ -133,6 +135,7 @@ class Player
         puts "Choose your adversary." 
         puts
         puts "Train your skills against the practice drones: "
+        puts
         $practice_drones.each do |practice_drone| # used for display reasons, prints every second enemy on a white background
             if count % 2 == 0
                 puts "#{practice_drone.name.capitalize} - level: #{practice_drone.level}".black.on_white if (practice_drone.level < self.level + 3)
@@ -171,42 +174,41 @@ class Player
         main_menu(self)
     end
 
-    end
+end
 
-    # prints out the available commands
-    def list_commands
-        puts UI_ARROW.light_yellow + " " + "'fight', 'f', or 'battle' to view enemies and fight."
-        puts UI_ARROW.light_yellow + " " + "'armoury' or 'a' to go to the armoury."
-        puts UI_ARROW.light_yellow + " " + "'stats' to view your current status."
-        puts UI_ARROW.light_yellow + " " + "'clear' or 'cls' to clear the screen."
-        puts UI_ARROW.light_yellow + " " + "'quit', 'q', or 'exit' to abandon your journey."
-        puts
-    end
+# # prints out the available commands
+# def list_commands
+#     puts UI_ARROW.light_yellow + " " + "'fight', 'f', or 'battle' to view enemies and fight."
+#     puts UI_ARROW.light_yellow + " " + "'armoury' or 'a' to go to the armoury."
+#     puts UI_ARROW.light_yellow + " " + "'stats' to view your current status."
+#     puts UI_ARROW.light_yellow + " " + "'clear' or 'cls' to clear the screen."
+#     puts UI_ARROW.light_yellow + " " + "'quit', 'q', or 'exit' to abandon your journey."
+#     puts
+# end
 
-    # main menu, also acts as the home area
-    def main_menu(player)
-        quit = false # boolean used to exit menu loop
-        while quit != true # while loop to keep player in menu unless choice is made
-        puts
-        puts "Type 'commands' for a list of available commands."
-        print UI_ARROW.red + " "
-        input = gets.chomp.strip.downcase
-        puts
-            case input # switch statement to go to player menu choice
-            when 'fight'
-                player.choose_enemy
-            when 'armoury'
-                player.armoury
-            when 'stats'
-                player.view_stats
-            when 'commands'
-                list_commands
-            when 'clear', 'cls' 
-                system 'clear'
-            when 'quit', 'q', 'exit'
-                abort("You have abandoned your journey.".red)
-            else
-                puts "That's not an available command"
-            end
-        end
-    end
+# # main menu, also acts as the home area
+# def main_menu(player)
+#     quit = false # boolean used to exit menu loop
+#     while quit != true # while loop to keep player in menu unless choice is made
+#     puts "Type 'commands' for a list of available commands."
+#     print UI_ARROW.red + " "
+#     input = gets.chomp.strip.downcase
+#     puts
+#         case input # switch statement to go to player menu choice
+#         when 'fight'
+#             player.choose_enemy
+#         when 'armoury'
+#             player.armoury
+#         when 'stats'
+#             player.view_stats
+#         when 'commands'
+#             list_commands
+#         when 'clear', 'cls' 
+#             system 'clear'
+#         when 'quit', 'q', 'exit'
+#             abort("You have abandoned your journey.".red)
+#         else
+#             puts "That's not an available command"
+#         end
+#     end
+# end

@@ -1,4 +1,5 @@
 require_relative './player_class.rb'
+require_relative './menu'
 
 system 'clear'
 
