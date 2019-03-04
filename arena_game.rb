@@ -41,7 +41,7 @@ class Player
                 $enemies.delete(enemy) # deletes the champion from the array
             elsif $practice_drones.include? enemy # 
                 $coins_rewarded = 5
-                puts "The Tetrarchs award you " + "#{$coins_rewarded} coins".yellow + " for your efforts."
+                puts "The Tetrarchs award you" + " #{$coins_rewarded} coins".yellow + " for your efforts."
                 puts
                 self.level_up(2) # calls the level up method and passes it 'experience'
             else

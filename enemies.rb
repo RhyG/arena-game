@@ -30,7 +30,7 @@ greg = Enemy.new("Greg the Favoured One", 8, 220, 25)
 
 # champions
 priamus = Enemy.new("priamus the first son", 1, 10, 2)
-duoro = Enemy.new("duoro", 2, 20, 3)
+duoro = Enemy.new("twocius", 2, 20, 3)
 tertius = Enemy.new("tertius", 3, 40, 5)
 stan = Enemy.new("stan", 4, 80, 8)
 calgar = Enemy.new("calgar", 5, 120, 12)
