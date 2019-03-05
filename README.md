@@ -9,10 +9,10 @@ LINK
 * Purpose
 * Functionality
 * Instructions for use
- *Screenshots
+* Screenshots
 
 ### Details of design and planning process inlcuding
 * Evidence of app idea brainstorming sessions
 * app User/Workflow diagram
 * Project plan and timeline
- *Screenshots of Trello board
+* Screenshots of Trello board
