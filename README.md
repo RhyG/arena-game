@@ -49,6 +49,11 @@ Buy new gear and defeat all 10 champions to beat The Arena.
 * Implement armoury feature
 * Implement gems
 
+### Known issues and flaws
+
+* All enemies accessible, just not displayed
+* When choosing enemy only a single letter required
+
 ### Future of The Arena
 
 Were we to continue develop the app there are a number of features we would love to implement, as well as a few things we would change.
