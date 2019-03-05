@@ -1,12 +1,13 @@
+require 'catpix'
+
 class Enemy
-    attr_reader :name, :level
+    attr_reader :name
     attr_writer :is_practice_enemy
-    attr_accessor :attack, :health
+    attr_accessor :attack, :health, :level
     def initialize(name, level, health)
         @name = name
         @level = level
         @health = health
-        #@attack = attack
     end
 end
 
@@ -31,3 +32,4 @@ horus = Enemy.new("joe, the faetill one", 10, 400)
 
 $enemies = [priamus, duoro, tertius, stan, calgar, loken, abbadon, erebus, lorgar, horus]
 $practice_drones = [slave_joe, unlucky_bob, mince, greg]
+
