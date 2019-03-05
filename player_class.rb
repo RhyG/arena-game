@@ -1,5 +1,6 @@
 require_relative './enemies'
 require_relative './weapons'
+require 'catpix'
 require 'colorize'
 require 'artii'
 require 'progressbar'
@@ -11,6 +12,7 @@ class Player
     # initalizes the player with base stats
     def initialize(name)
         @name = name
+        @level = 1
         @health = 5
         @weapon = $weapons[0]
         @wins = 0
@@ -23,16 +25,16 @@ class Player
         stored_health = enemy.health # stores the enemy health in a variable
         5.times do # this generates a random number between 1 and the damage value of the equipped weapon, then takes that from the enemy health
             damage = (rand(1..self.weapon[:damage])) * self.level
-            puts "Dealt: #{damage} damage."
+            #puts "Dealt: #{damage} damage."
             enemy.health -= damage # subtracts the damage from the enemy health
         end
 
         bar = ProgressBar.create(:title => "Fighting") # this creates a progress bar that 'simulates' the fight
-        50.times { bar.increment; sleep 0.07 }
+        30.times { bar.increment; sleep 0.07 }
 
         if enemy.health <= 0 # if the enemy health is brought to zero or less then the player wins
             puts
-            puts "VICTORY!".red
+            puts "VICTORY!".green
             # if loop to check if the enemy was a champion or practice drone which changes how much experience and gold is awarded
             if $enemies.include? enemy
                 $coins_rewarded = 10 * enemy.level 
@@ -40,8 +42,9 @@ class Player
                 puts
                 self.level_up(5) # calls the level up method and passes it 'experience'
                 $enemies.delete(enemy) # deletes the champion from the array
+                victory_screen if $enemies.length == 0
             elsif $practice_drones.include? enemy 
-                $coins_rewarded = 5 * (0.5 * enemy.level)
+                $coins_rewarded = 5 # * (0.5 * enemy.level)
                 puts "The Tetrarchs award you" + " #{$coins_rewarded} coins".yellow + " for your efforts."
                 exp = 2 * (enemy.level * 0.5)
                 self.level_up(2) # calls the level up method and passes it 'experience'
@@ -51,7 +54,7 @@ class Player
             
             enemy.health = stored_health if $practice_drones.include? enemy # restores the practice drone health so that you can train against them over and over
         else # executes if enemy health isn't brought to zero
-            puts "You lose."
+            puts "You lose.".red
             puts "The Tetrarchs throw two coins at your feet."
             self.coins += 2
             enemy.health = stored_health # restores champion health so next fight isn't easier
@@ -77,7 +80,7 @@ class Player
         puts "Level: #{self.level}"
         puts "Coins: #{self.coins}"
         puts "Weapon: #{self.weapon[:name]}"
-        puts "Experience: #{self.experience}"
+        #puts "Experience: #{self.experience}"
     end
 
     # armoury method used to display weapons to the player and allow them to purchase them
@@ -132,23 +135,24 @@ class Player
 
     # choose enemy method used to display enemies, allow user to choose and fight an enemy
     def choose_enemy
-        count = 0
-        puts "Choose your adversary." 
+        puts "CHOOSE YOUR ADVERSARY.".black.on_white 
         puts
-        puts "Train your skills against the practice drones: "
-        puts
+        puts "Train your skills against the practice drones: ".green
+        puts "------------------------------------------------"
         $practice_drones.each do |practice_drone| # used for display reasons, prints every second enemy on a white background
-            if count % 2 == 0
-                puts "#{practice_drone.name.capitalize} - level: #{practice_drone.level}".black.on_white if (practice_drone.level < self.level + 3)
-            else 
-                puts "#{practice_drone.name.capitalize} - level: #{practice_drone.level}" if (practice_drone.level < self.level + 3)
+            if practice_drone.level < self.level + 4
+                puts "#{practice_drone.name.capitalize} - level: #{practice_drone.level}" #if (practice_drone.level < self.level + 4)
+                puts "------------------------------------------------"
             end
-            count += 1
         end 
         puts
-        puts "Choose a champion:"
+        puts "Test your luck against the champions:".green
+        puts "------------------------------------------------"
         $enemies.each do |enemy|
-            puts "#{enemy.name.capitalize} - level: #{enemy.level}" if (enemy.level < self.level + 4)
+            if enemy.level < self.level + 4
+                puts "#{enemy.name.capitalize} - level: #{enemy.level}"
+                puts "------------------------------------------------"
+            end
         end
         puts
         enemy_choice = gets.chomp.downcase
@@ -158,14 +162,14 @@ class Player
         while enemy_found != true # while loop to display enemies if enemy_found is false
             $enemies.each do |enemy| # prints the 'champions'
                 if enemy.name.include? enemy_choice
-                    puts "Calling fight method"
+                    puts "Entering the arena"
                     self.fight(enemy) # calls fight method and passes the chosen enemy
                     enemy_found = true # sets enemy_found to true and exits the while loop
                 end
             end
             $practice_drones.each do |practice_drone| # prints the 'practice drones'
                 if practice_drone.name.include? enemy_choice # checks to see if user entered the correct name of an enemy
-                    puts "Entering arena"
+                    puts "Entering the training cages"
                     self.fight(practice_drone) # calls fight method and passes the chosen enemy
                     enemy_found = true # sets enemy_found to true and exits the while loop
                 end
@@ -175,3 +179,17 @@ class Player
         main_menu(self)
     end
 end
+
+def victory_screen
+    system 'clear'
+    'GAME OVER'
+    Catpix::print_image "victory_screen.jpg",
+    :limit_x => 1.0,
+    :limit_y => 0,
+    :center_x => true,
+    :center_y => true,
+    :bg => "white",
+    :bg_fill => true
+        abort("See you next time.".red)
+end
+
