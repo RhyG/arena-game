@@ -49,10 +49,12 @@ Buy new gear and defeat all 10 champions to beat The Arena.
 * Implement armoury feature
 * Implement gems
 
-### Known issues and flaws
+### Known issues and potential improvements
 
 * All enemies accessible, just not displayed
 * When choosing enemy only a single letter required
+* Better refine the enemy stats so progression and difficulty scales better
+* Better improve classes and method oranisation. Currently most methods exist in player class as the player is the one calling them, could be improved to be more DRY.
 
 ### Future of The Arena
 
