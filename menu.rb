@@ -1,4 +1,5 @@
 require_relative './player_class'
+#require_relative './main'
 
 # prints out the available commands
 def list_commands
@@ -14,14 +15,15 @@ end
 def main_menu(player)
     quit = false # boolean used to exit menu loop
     while quit != true # while loop to keep player in menu unless choice is made
-    puts "Type 'commands' for a list of available commands."
-    print UI_ARROW.red + " "
-    input = gets.chomp.strip.downcase
-    puts
+        puts
+        puts "Type 'commands' for a list of available commands."
+        print UI_ARROW.red + " "
+        input = gets.chomp.strip.downcase
+        puts
         case input # switch statement to go to player menu choice
-        when 'fight'
+        when 'fight', 'f', 'battle'
             player.choose_enemy
-        when 'armoury'
+        when 'armoury', 'a'
             player.armoury
         when 'stats'
             player.view_stats
@@ -30,7 +32,10 @@ def main_menu(player)
         when 'clear', 'cls' 
             system 'clear'
         when 'quit', 'q', 'exit'
-            abort("You have abandoned your journey.".red)
+            abort("Look, bud. You leave now and you forfeit your body count!".red)
+        when 'godmode'
+            player.level = 100
+            player.coins = 5000
         else
             puts "That's not an available command"
         end
