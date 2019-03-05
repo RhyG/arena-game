@@ -27,7 +27,7 @@ loken = Enemy.new("loken", 6, 150)
 abbadon = Enemy.new("abbadon", 7, 200)
 erebus = Enemy.new("erebus", 8, 250)
 lorgar = Enemy.new("lorgar", 9, 350)
-horus = Enemy.new("joe, the faetill one", 10, 500)
+horus = Enemy.new("joe, the faetill one", 10, 400)
 
 $enemies = [priamus, duoro, tertius, stan, calgar, loken, abbadon, erebus, lorgar, horus]
 $practice_drones = [slave_joe, unlucky_bob, mince, greg]

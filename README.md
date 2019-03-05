@@ -1,9 +1,6 @@
 # The Arena
 
-A simple text based RPG played in the terminal.
-
-LINK
--ensure accessible to educators
+The Arena is a simple text-based RPG played in the terminal.
 
 ### Description
 
@@ -51,3 +48,14 @@ Buy new gear and defeat all 10 champions to beat The Arena.
 * Coins and levelling up features
 * Implement armoury feature
 * Implement gems
+
+### Future of The Arena
+
+Were we to continue develop the app there are a number of features we would love to implement, as well as a few things we would change.
+
+* Improve fight function so enemy also does damage to player
+* Refine experience system so amount varies depending on level of enemy and performance in fight
+* Add more weapons
+* Implement more modifiers for in combat including damage mitigation
+* Allow user to purchase armour to improve stats
+* Implement more interactive battle method allowing user to see what damage they deal and receive as well as current health
