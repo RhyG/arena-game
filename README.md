@@ -6,13 +6,13 @@ LINK
 -ensure accessible to educators
 
 ### Description
--Purpose
--Functionality
--Instructions for use
--Screenshots
+* Purpose
+* Functionality
+* Instructions for use
+ *Screenshots
 
 ### Details of design and planning process inlcuding
--Evidence of app idea brainstorming sessions
--app User/Workflow diagram
--Project plan and timeline
--Screenshots of Trello board
+* Evidence of app idea brainstorming sessions
+* app User/Workflow diagram
+* Project plan and timeline
+ *Screenshots of Trello board
