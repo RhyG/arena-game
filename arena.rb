@@ -1,6 +1,7 @@
 # this is the launch file of the app from which other files are called
 
-require_relative './player_class.rb'
+require_relative './player_class'
+require_relative './weapons'
 require_relative './menu'
 
 system 'clear'

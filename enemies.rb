@@ -2,7 +2,6 @@
 
 class Enemy
     attr_reader :name, :is_practice_enemy
-    #attr_writer :is_practice_enemy
     attr_accessor :attack, :health, :level
     def initialize(name, level, health, is_practice_enemy)
         @name = name
@@ -12,8 +11,8 @@ class Enemy
     end
 end
 
-#(NAME, LEVEL, HEALTH)
-#practice bots
+# (NAME, LEVEL, HEALTH)
+# practice bots
 slave_joe = Enemy.new("slave dan", 1, 5, true)
 unlucky_bob = Enemy.new("unlucky bob", 3, 20, true)
 mince = Enemy.new("mince meat", 6, 115, true)

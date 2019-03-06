@@ -1,6 +1,7 @@
 # menu file containing the methods used for the main menu and list commands
 
 require_relative './player_class'
+require_relative './weapons'
 require_relative './enemies'
 
 # prints out the available commands
@@ -10,7 +11,6 @@ def list_commands
     puts UI_ARROW.light_yellow + " " + "'stats' to view your current status."
     puts UI_ARROW.light_yellow + " " + "'clear' or 'cls' to clear the screen."
     puts UI_ARROW.light_yellow + " " + "'quit', 'q', or 'exit' to abandon your journey."
-    puts
 end
 
 # main menu, also acts as the home area
@@ -41,5 +41,6 @@ def main_menu(player)
         else
             puts "That's not an available command"
         end
+        puts @weapons
     end
 end

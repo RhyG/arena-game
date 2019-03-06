@@ -13,7 +13,7 @@ class Player
         @name = name
         @level = 1
         @health = 5
-        @weapon = $weapons[0]
+        @weapon = get_weapons[0]
         @wins = 0
         @coins = 0
         @experience = 0
@@ -59,10 +59,10 @@ class Player
         puts
         puts "What are you walking out with today?"
         print UI_ARROW.red + " " 
-        @user_armoury_choice = gets.chomp.downcase
-
-        $weapons.each do |weapon|
-            if @user_armoury_choice == weapon[:name] && self.coins >= weapon[:cost] && self.level >= weapon[:level] # if user is a high enough level and has enough coins allows them to purchase weapon
+        user_armoury_choice = gets.chomp.downcase
+        weapons = get_weapons
+        weapons.each do |weapon|
+            if user_armoury_choice == weapon[:name] && self.coins >= weapon[:cost] && self.level >= weapon[:level] # if user is a high enough level and has enough coins allows them to purchase weapon
                 dialogue_choice = rand(1...3) # used to select a different dialogue whenever purchasing a weapon
                 if dialogue_choice == 1
                     puts "That's a good piece, you've chosen well."
@@ -74,18 +74,14 @@ class Player
                 puts "#{weapon[:cost]} coins was subtracted from your coin pile." 
                 self.weapon = weapon # assigns weapon to player
                 self.coins -= weapon[:cost] # takes weapon cost from player coins
-                $weapons.delete(weapon) # removes the weapon from the array
-            elsif @user_armoury_choice == weapon[:name] && self.coins < weapon[:cost] # lets user know if they don't have enough coins
+                weapons.delete(weapon) # removes the weapon from the array
+            elsif user_armoury_choice == weapon[:name] && self.coins < weapon[:cost] # lets user know if they don't have enough coins
                 puts "You can't afford that, how 'bout you come back when you've got the funds?"
-            elsif @user_armoury_choice == weapon[:name] && self.level < weapon[:level] # lets user know if they aren't a high enough level
+            elsif user_armoury_choice == weapon[:name] && self.level < weapon[:level] # lets user know if they aren't a high enough level
                 puts "You haven't got the skill for a weapon like that."
             else
                 # puts "That's not an option."
             end
-        end
-        if  !$weapons.any? { |weapon| weapon[:name] != @user_weapon_choice }
-            puts weapon[:name]
-            puts "Not there."
         end
         main_menu(self)         
     end
