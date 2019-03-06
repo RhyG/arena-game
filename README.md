@@ -8,6 +8,8 @@ The purpose of this app to take the user on a journey like never before. Sherine
 
 The Arena app is a simple, RPG battle game where the player trains against other people, levels up, earns money and buys new weapons all with the goal of defeating all 10 champions.
 
+APP REQUIREMENTS
+
 ### Functionality
 
 This app works through a number of different methods called from the player class. On launch the user creates a new player and is presented with a list of options. From there they can choose to select enemies and fight.
@@ -19,6 +21,12 @@ The player is also able to visit 'the armoury' from which they can view a list o
 The game ends when all champions have been defeated.
 
 ### Instructions for use
+
+To run the app, run the main.rb file from terminal.
+
+```ruby
+arena-game User$ ruby main.rb
+```
 
 On launch you will be prompted to give a name to your hero. Once you have done that you can view and choose menu options. There are practice bots you can fight to get started, and when you feel ready you can fight the champions. More champions will be revealed as you level up.
 
