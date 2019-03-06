@@ -47,7 +47,7 @@ class Player
         puts "Level: #{self.level}"
         puts "Coins: #{self.coins}"
         puts "Weapon: #{self.weapon[:name]}"
-        puts "Experience: #{self.experience * 13}"
+        puts "Experience: #{self.experience}"
     end
 
     # armoury method used to display weapons to the player and allow them to purchase them
