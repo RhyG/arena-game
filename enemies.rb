@@ -1,4 +1,4 @@
-require 'catpix'
+# this file holds the enemy class as well as the methods used to print the list of enemies and choose a winner when fighting
 
 class Enemy
     attr_reader :name, :is_practice_enemy

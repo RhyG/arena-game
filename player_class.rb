@@ -1,9 +1,8 @@
+# this file contains the player class and the bulk of the methods called by the player
+
 require_relative './enemies'
 require_relative './weapons'
-require 'catpix'
-require 'colorize'
-require 'artii'
-require 'progressbar'
+require_relative './main'
 
 class Player
     attr_reader :name
@@ -25,7 +24,6 @@ class Player
         stored_health = enemy.health # stores the enemy health in a variable
         5.times do # this generates a random number between 1 and the damage value of the equipped weapon, then takes that from the enemy health
             damage = (rand(1..self.weapon[:damage])) * self.level
-            #puts "Dealt: #{damage} damage."
             enemy.health -= damage # subtracts the damage from the enemy health
         end
         decide_winner(enemy, stored_health) # calls decide winner method in emenies.rb file to decide on a winner
@@ -117,17 +115,4 @@ class Player
         end
         main_menu(self)
     end
-end
-
-def victory_screen
-    system 'clear'
-    'GAME OVER'
-    Catpix::print_image "victory_screen.jpg",
-    :limit_x => 1.0,
-    :limit_y => 0,
-    :center_x => true,
-    :center_y => true,
-    :bg => "white",
-    :bg_fill => true
-        abort("See you next time.".red)
 end

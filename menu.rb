@@ -1,3 +1,5 @@
+# menu file containing the methods used for the main menu and list commands
+
 require_relative './player_class'
 require_relative './enemies'
 
