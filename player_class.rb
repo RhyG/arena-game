@@ -131,4 +131,3 @@ def victory_screen
     :bg_fill => true
         abort("See you next time.".red)
 end
-

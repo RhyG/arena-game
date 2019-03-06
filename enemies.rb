@@ -91,4 +91,3 @@ def decide_winner(enemy, stored_health)
         main_menu(self)    
     end
 end
-

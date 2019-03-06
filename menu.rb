@@ -1,5 +1,5 @@
 require_relative './player_class'
-#require_relative './main'
+require_relative './enemies'
 
 # prints out the available commands
 def list_commands
