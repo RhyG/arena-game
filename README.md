@@ -35,10 +35,10 @@ The game ends when all champions have been defeated.
 
 # Instructions for use
 
-To run the app, run the main.rb file from terminal.
+To run the app, run the arena.rb file from terminal.
 
 ```ruby
-ruby main.rb
+ruby arena.rb
 ```
 
 On launch you will be prompted to give a name to your hero. Once you have done that you can view and choose menu options. There are practice bots you can fight to get started, and when you feel ready you can fight the champions. More champions will be revealed as you level up.
