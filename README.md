@@ -1,12 +1,6 @@
 # The Arena
 
-The Arena is a simple text-based RPG played in the terminal.
-
-# Description
-
-The purpose of this app to take the user on a journey like never before. Sherine wanted to pretend she was a fierce warrior and so we built a role playing app allowing her to live out her fantasy.
-
-The Arena app is a simple, RPG battle game where the player trains against other people, levels up, earns money and buys new weapons all with the goal of defeating all 10 champions.
+The Arena is a simple text-based RPG played in the terminal. Players can train to level up, earn coins and buy new weapons with the goal of defeating all 10 champions.
 
 # Requirements
 
@@ -47,12 +41,6 @@ After each battle you will earn coins and experience which you will need when yo
 
 Buy new gear and defeat all 10 champions to beat The Arena.
 
-# Details of design and planning process inlcuding
-* Evidence of app idea brainstorming sessions
-* app User/Workflow diagram
-* Project plan and timeline
-* Screenshots of Trello board
-
 # Project timeline
 
 ### Day 1:
@@ -62,6 +50,7 @@ Buy new gear and defeat all 10 champions to beat The Arena.
 * Build enemy class
 * Work out fight method
 * Build main menu
+* Testing
 
 ### Day 2: 
 * Extensive testing
@@ -75,7 +64,8 @@ Buy new gear and defeat all 10 champions to beat The Arena.
 * All enemies accessible, just not displayed
 * When choosing enemy only a single letter required
 * Better refine the enemy stats so progression and difficulty scales better
-* Better improve classes and method oranisation. Currently most methods exist in player class as the player is the one calling them, could be improved to be more DRY.
+* Better improve classes and method oranisation. Currently most methods exist in player class as the player is the one calling them, with more time could be improved to be more DRY.
+* Remove any global variables
 
 # Future of The Arena
 
@@ -87,3 +77,5 @@ Were we to continue develop the app there are a number of features we would love
 * Implement more modifiers for in combat including damage mitigation
 * Allow user to purchase armour to improve stats
 * Implement more interactive battle method allowing user to see what damage they deal and receive as well as current health
+* Create completely immersive VR experience allowing the player to feel and live as if they are their character, and to make every swing and take every hit from within the arena.
+* Revolutionise not just gaming, but reality as we know it. Usher in a new era of life as all people seek to compete in the arena bringing an epoch of human peace and achievement as any negativity and disagreement is resolved through the game

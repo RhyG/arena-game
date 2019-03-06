@@ -2,7 +2,7 @@
 
 require_relative './player_class'
 require_relative './weapons'
-require_relative './menu'
+require_relative './main'
 
 system 'clear'
 

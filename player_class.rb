@@ -90,6 +90,8 @@ class Player
     def choose_enemy
         print_enemies
         puts
+        puts "Who is it gonna be?"
+        print UI_ARROW.red + " "
         enemy_choice = gets.chomp.downcase
         enemy_found = false # boolean used to exit loop if an enemy is chosen
         while enemy_found != true # while loop to display enemies if enemy_found is false

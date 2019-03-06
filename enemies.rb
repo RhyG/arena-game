@@ -4,14 +4,14 @@ class Enemy
     attr_reader :name, :is_practice_enemy
     attr_accessor :attack, :health, :level
     def initialize(name, level, health, is_practice_enemy)
-        @name = name
-        @level = level
-        @health = health
-        @is_practice_enemy = is_practice_enemy
+        @name = name # enemy name
+        @level = level # enemy level
+        @health = health # enemy health
+        @is_practice_enemy = is_practice_enemy # boolean used to check if the enemy is a champion or practice bot
     end
 end
 
-# (NAME, LEVEL, HEALTH)
+# (NAME, LEVEL, HEALTH, is_practice_enemy)
 # practice bots
 slave_joe = Enemy.new("slave dan", 1, 5, true)
 unlucky_bob = Enemy.new("unlucky bob", 3, 20, true)
@@ -33,6 +33,7 @@ horus = Enemy.new("joe, the faetill one", 10, 400, false)
 $enemies = [priamus, duoro, tertius, stan, calgar, loken, abbadon, erebus, lorgar, horus]
 $practice_drones = [slave_joe, unlucky_bob, mince, greg]
 
+# print enemies method used to display a list of enemies
 def print_enemies
     puts "CHOOSE YOUR ADVERSARY.".black.on_white 
     puts
@@ -53,9 +54,9 @@ def print_enemies
             puts "------------------------------------------------"
         end
     end
-    puts
 end
 
+# the decide_winner method is passed the enemy and their health and prints the appropriate information depending on who the winner of the fight is. It also gives the player coins and exp
 def decide_winner(enemy, stored_health)
 
     bar = ProgressBar.create(:title => "Fighting") # this creates a progress bar that 'simulates' the fight
