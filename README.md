@@ -43,6 +43,16 @@ After each battle you will earn coins and experience which you will need when yo
 
 Buy new gear and defeat all 10 champions to beat The Arena.
 
+# Screnshots
+
+First screen: https://github.com/RhyG/arena-game/blob/master/docs/first_screen.png
+Commands: https://github.com/RhyG/arena-game/blob/master/docs/new_player_commands.png
+Fight: https://github.com/RhyG/arena-game/blob/master/docs/enemy_list.png
+Victory screen: https://github.com/RhyG/arena-game/blob/master/docs/victory_screen.png
+Stats: https://github.com/RhyG/arena-game/blob/master/docs/stats_screen.png
+Armoury: https://github.com/RhyG/arena-game/blob/master/docs/armoury_screen.png
+
+
 # Project timeline
 
 ### Day 1:
