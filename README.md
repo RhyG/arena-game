@@ -59,13 +59,28 @@ Buy new gear and defeat all 10 champions to beat The Arena.
 * Implement armoury feature
 * Implement gems
 
+# Reasons behind decisions
+
+* The app was built with the intention of each aspect of the game have its own file. The weapons methods and information remain in the weapons file, the methods responsible for giving the weapon to the player live in the player class however.
+* Classes were used for the enemies and the player as they both have variables which will be accessed change throughout the game. 
+* The weapons are in an array of hashes because their variables are constant throughout the game, and because hashes are cool.
+* The menu and end game methods are in the main file because they are the default state of the player
+* Keeping the code DRY and easily read was a big development goal, and while not perfect that goal has mostly been achieved in breaking the files up into their individual purposes
+
 # Known issues and potential improvements
 
 * All enemies accessible, just not displayed
 * When choosing enemy only a single letter required
 * Better refine the enemy stats so progression and difficulty scales better
-* Better improve classes and method oranisation. Currently most methods exist in player class as the player is the one calling them, with more time could be improved to be more DRY.
+* Better improve classes and method organisation. Currently most methods exist in player class as the player is the one calling them, with more time could be improved to be more DRY.
 * Remove any global variables
+
+# Favourite parts of development
+
+* Nostalgia of childhood games
+* Tackling problems within fight method
+* Creating names of characters
+* When it actually works
 
 # Future of The Arena
 
