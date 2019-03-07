@@ -28,9 +28,9 @@ def main_menu(player)
         puts
         case input # switch statement to go to player menu choice
         when 'fight', 'f', 'battle'
-            player.choose_enemy
+            choose_enemy(player)
         when 'armoury', 'a'
-            player.armoury
+            armoury(player)
         when 'stats'
             player.view_stats
         when 'commands'

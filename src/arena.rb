@@ -7,9 +7,9 @@ require_relative './main'
 system 'clear'
 
 # prints title card
-a = Artii::Base.new
+title_card = Artii::Base.new
 puts"                         WELCOME TO"
-puts a.asciify("THE  ARENA").black.on_white
+puts title_card.asciify("THE  ARENA").black.on_white
 
 UI_ARROW = "\u2712"
 print UI_ARROW.light_yellow

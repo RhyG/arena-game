@@ -1,3 +1,5 @@
+https://github.com/RhyG/arena-game
+
 # The Arena
 
 The Arena is a simple text-based RPG played in the terminal. Players can train to level up, earn coins and buy new weapons with the goal of defeating all 10 champions.
@@ -73,7 +75,7 @@ Buy new gear and defeat all 10 champions to beat The Arena.
 * When choosing enemy only a single letter required
 * Better refine the enemy stats so progression and difficulty scales better
 * Better improve classes and method organisation. Currently most methods exist in player class as the player is the one calling them, with more time could be improved to be more DRY.
-* Remove any global variables
+* The arrays containing the enemies are currently global. While this works it is poor practice, and remains this way simply due to time constraints.
 
 # Favourite parts of development
 
